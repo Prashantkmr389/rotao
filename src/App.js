@@ -9,7 +9,7 @@ function App() {
   const [components, setComponents] = useState([]);
   
   // Function to add a new component to the canvas
-  const addComponent = (type, position) => {
+  const addComponent = (type, position, set) => {
     // Generate a unique key for each component
     const id = new Date().getTime().toString();
     setComponents([...components, { id, type, position}]);

@@ -1,5 +1,5 @@
 // App.js
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 
 import Canvas from './components/Canvas';
 import ControlPanel from './components/ControPanel';
@@ -7,12 +7,13 @@ import ControlPanel from './components/ControPanel';
 
 function App() {
   const [components, setComponents] = useState([]);
-
+  
   // Function to add a new component to the canvas
   const addComponent = (type, position) => {
     // Generate a unique key for each component
     const id = new Date().getTime().toString();
     setComponents([...components, { id, type, position}]);
+    
   };
 
   return (

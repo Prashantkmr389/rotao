@@ -1,5 +1,5 @@
 // Canvas.js
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 
 import Draggable from 'react-draggable'; // You can use a draggable library like 'react-draggable'
@@ -8,7 +8,7 @@ import InputComponent from './InputComponent';
 import DropdownComponent from './Dropdown';
 import TableComponent from './TableComponent';
 
-function ControlPanel({ addComponent, components }) {
+function ControlPanel({ addComponent, components, setShowGrid }) {
   const [dyButtton, setDyButton] = useState(0);
   const [dxButtton, setDxButton] = useState(0);
   const [dyInput, setDyInput] = useState(0);
@@ -65,8 +65,9 @@ function ControlPanel({ addComponent, components }) {
     
     componentPositions[component.id] = { x, y };
     localStorage.setItem('componentPositions', JSON.stringify(componentPositions));
+    setShowGrid(false);
+
 };
-  console.log('components tuum kya janoge', components)
   return (
     <div className="ControlPanel"  style={{position:'relative', width: '100%', height: '100%' }}>
       <button className='addBtn' onClick={() => {addComponent('ButtonComponent', { x: 130+dxButtton, y: dyButtton+0 }); increaseButtonPixel()}}>Add Button</button>
@@ -78,6 +79,7 @@ function ControlPanel({ addComponent, components }) {
         <Draggable key={component.id}
            defaultPosition={{ x: component.x, y: component.y }}
           onStop={handleDragStop(component)}
+          onStart={() => setShowGrid(true)}
         >
           <div className={`component ${component.type.toLowerCase()}`} style={{
             position: 'absolute',

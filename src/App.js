@@ -7,6 +7,7 @@ import ControlPanel from './components/ControPanel';
 
 function App() {
   const [components, setComponents] = useState([]);
+  const [showGrid, setShowGrid] = useState(false);
   useEffect(()=>{
     const data = localStorage.getItem('components');
     const positiondata = localStorage.getItem("componentPositions");
@@ -22,7 +23,7 @@ function App() {
       }
       setComponents(components);
     }
-  }, [components])
+  }, [])
 
   // Function to add a new component to the canvas
   const addComponent = (type, position) => {
@@ -41,8 +42,8 @@ function App() {
         <h1>Zenskar App Builder</h1>
       </div>
       <div className="Screen">
-        <Canvas components={components} />
-        <ControlPanel addComponent={addComponent} components={components} />
+        <Canvas showGrid={showGrid} />
+        <ControlPanel addComponent={addComponent} components={components} setShowGrid = {setShowGrid} />
       </div>
     </>
   );

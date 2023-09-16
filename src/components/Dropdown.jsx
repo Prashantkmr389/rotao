@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const DropdownComponent = ({ options }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState([]);
-
+  
   const toggleDropdown = () => {
     console.log('toggleDropdown')
     setIsOpen(!isOpen);

@@ -23,14 +23,24 @@ const DropdownComponent = ({ options }) => {
   };
 
   return (
-    <div className="multi-select-dropdown">
-    {selectedOptions.length > 0
-          ? selectedOptions.join(', ')
-      : 'Select option'}
-      <button className="dropdown-toggle" onClick={toggleDropdown}>
-  
-      <i className={`fas fa-caret-up dropdown-arrow ${isOpen ? 'open' : ''}`}></i>
-</button>
+    < div className="multi-select-dropdown">
+    <div className='dropdownHeader'>  
+      <span>
+          {selectedOptions.length > 0
+              ? selectedOptions.join(', ')
+          : 'Select option'}
+        </span>
+      
+            <button className="dropdown-toggle" onClick={toggleDropdown}>
+            {isOpen && (<i className={`fas fa-caret-up dropdown-arrow ${isOpen ? 'open' : 'close'}`}></i>)}
+            {!isOpen && (<i className={`fas fa-caret-down dropdown-arrow ${isOpen ? 'open' : 'close'}`}></i>)}
+            
+          </button>
+    </div>
+    
+    
+      
+      
 
       {isOpen && (
         <ul className="dropdown-options">

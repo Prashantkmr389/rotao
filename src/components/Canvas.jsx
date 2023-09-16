@@ -9,8 +9,8 @@ function Canvas({showGrid}) {
       {showGrid && (
         <div className="grid-container">
           {/* Render the grid of dots */}
-          {Array.from({ length: 100 }, (_, row) => (
-            Array.from({ length: 100 }, (_, col) => (
+          {Array.from({ length: 55 }, (_, row) => (
+            Array.from({ length: 38 }, (_, col) => (
               <div
                 key={`dot-${row}-${col}`}
                 className="grid-dot"

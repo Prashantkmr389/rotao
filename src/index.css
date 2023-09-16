@@ -122,3 +122,23 @@ opacity: 1;
   opacity: 0.3;
 }
 
+.dropdownHeader{
+  border: 1px solid #a2d6f0;
+  border-radius: 5px;
+  width: 200px;
+}
+
+
+
+.dropdownHeader >span{
+  margin-left: 10px;
+}
+.dropdownHeader >button{
+  width: 70px;
+  background-color: #a2d6f0;
+  cursor: pointer;
+  /* to have on right side */
+  float: right;
+}
+
+
